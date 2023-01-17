@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <style>
+	*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	text-decoration: none;
+	list-style: none;
+	scroll-behavior: smooth;
+}
+:root{
+	--bg-color: #2a2a2a;
+	--second-bg-color: #202020;
+	--text-color: #fff;
+	--second-color: #ccc;
+	--main-color: #8685EF;
+	--big-font: 5rem;
+	--h2-font: 3rem;
+	--p-font: 1.1rem;
+}
+body{
+	background: var(--bg-color);
+	color: var(--text-color);
+}
+/* @media (max-width: 1032px) {
+	.home-img{
+		display: none;
+	}
+} */
+header{
+	position: fixed;
+	width: 100%;
+	top: 0;
+	right: 0;
+	z-index: 1000;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: transparent;
+	padding: 22px 15%;
+	border-bottom: 1px solid transparent;
+	transition: all .45s ease;
+}
+.logo{
+	color: var(--text-color);
+	font-size: 35px;
+	font-weight: 700;
+	letter-spacing: 1px;
+}
+span{
+	color: var(--main-color);
+}
+.navlist{
+	display: flex;
+}
+.navlist a{
+	color: var(--second-color);
+	font-size: 17px;
+	font-weight: 500;
+	margin: 0 25px;
+	transition: all .45s ease;
+}
+.navlist a:hover{
+	color: var(--main-color);
+}
+.navlist a.active{
+	color: var(--main-color);
+}
+#menu-icon{
+	font-size: 35px;
+	color: var(--text-color);
+	z-index: 10001;
+	cursor: pointer;
+	margin-left: 25px;
+	display: none;
+}
+
+section{
+	padding: 160px 15% 120px;
+}
+.home{
+	position: relative;
+	height: 100vh;
+	width: 100%;
+	/* background-color: black; */
+	/* background-image: url("back.jpeg"); */
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.slide{
+	margin-bottom: 20px;
+}
+.one{
+	display: inline-block;
+	margin-right: 15px;
+	height: 32px;
+	padding: 0 15px;
+	line-height: 32px;
+	font-size: 20px;
+	font-weight: 500;
+	border-radius: 5px;
+	background: var(--main-color);
+	color: var(--text-color);
+}
+.two{
+	display: inline-block;
+	color: var(--second-color);
+	font-size: 20px;
+	font-weight: 500;
+}
+.home-text h1{
+	font-size: var(--big-font);
+	font-weight: 700;
+	color: var(--text-color);
+	line-height: 1.1;
+	margin: 0 0 8px;
+}
+.home-text h3{
+	color: var(--text-color);
+	margin: 0 0 35px;
+	font-size: 3rem;
+	font-weight: 700;
+	line-height: 1.1;
+}
+.home-text p{
+	color: var(--second-color);
+	font-size: var(--p-font);
+	line-height: 1.8;
+	margin-bottom: 40px;
+}
+.button{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+.btn{
+	display: inline-block;
+	padding: 12px 28px;
+	background: var(--main-color);
+	border-radius: 5px;
+	color: var(--text-color);
+	font-size: 1rem;
+	letter-spacing: 1px;
+	font-weight: 600;
+	transition: all .45s ease;
+}
+.btn:hover{
+	transform: scale(0.9);
+}
+.btn2{
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--text-color);
+	margin-left: 35px;
+}
+.btn2 span i{
+	height: 55px;
+	width: 55px;
+	background: var(--main-color);
+	color: var(--text-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 35px;
+	border-radius: 50%;
+	margin-right: 15px;
+	transition: all .45s ease;
+}
+.btn2 span i:hover{
+	transform: scale(1.1) translateY(5px);
+}
+
+header.sticky{
+	background: var(--bg-color);
+	border-bottom: 1px solid #ffffff1a;
+	padding: 12px 15%;
+}
+
+.about{
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	gap: 1.5rem;
+}
+.about-img img{
+	max-width: 530px;
+	height: auto;
+	width: 100%;
+	border-radius: 8px;
+}
+.about-text h2{
+	font-size: var(--h2-font);
+	line-height: 1;
+}
+.about-text h4{
+	font-size: 24px;
+	font-weight: 600;
+	color: var(--text-color);
+	line-height: 1.7;
+	margin: 15px 0 30px;
+}
+.about-text p{
+	color: var(--second-color);
+	font-size: var(--p-font);
+	line-height: 1.8;
+	margin-bottom: 4rem;
+}
+
+.services{
+	background: var(--second-bg-color);
+}
+.main-text{
+	text-align: center;
+}
+.main-text p{
+	color: var(--second-color);
+	font-size: 15px;
+	margin-bottom: 15px;
+}
+.main-text h2{
+	font-size: var(--h2-font);
+	line-height: 1;
+}
+.services-content{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+	align-items: center;
+	gap: 2.5rem;
+	margin-top: 5rem;
+}
+.box{
+	background: var(--bg-color);
+	padding: 35px 45px;
+	border-radius: 8px;
+	transition: all .45s ease;
+}
+.s-icons i{
+	font-size: 32px;
+	margin-bottom: 20px;
+}
+.box h3{
+	font-size: 24px;
+	font-weight: 600;
+	color: var(--text-color);
+	margin-bottom: 15px;
+}
+.box p{
+	color: var(--second-color);
+	font-size: 1rem;
+	line-height: 1.8;
+	margin-bottom: 25px;
+}
+.read{
+	display: inline-block;
+	padding: 8px 18px;
+	background: #333333;
+	color: var(--second-color);
+	font-size: 14px;
+	font-weight: 500;
+	border-radius: 8px;
+	transition: all .45s ease;
+}
+.read:hover{
+	letter-spacing: 1px;
+	background: #ffffff99;
+	color: var(--text-color);
+}
+.box:hover{
+	transform: translateY(-8px);
+	cursor: pointer;
+}
+
+.portfolio-content{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(350px, auto));
+	align-items: center;
+	gap: 2.5rem;
+	margin-top: 5rem;
+}
+.row{
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+	cursor: pointer;
+}
+.row img{
+	width: 100%;
+	border-radius: 8px;
+	display: block;
+	transition: transform 0.5s;
+}
+.layer{
+	width: 100%;
+	height: 0;
+	background: linear-gradient(rgba(0,0,0,0.1), #ff004f);
+	position: absolute;
+	border-radius: 8px;
+	left: 0;
+	bottom: 0;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	padding: 0 40px;
+	transition: height 0.5s;
+}
+.layer h5{
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 15px;
+}
+.layer p{
+	color: var(--second-color);
+	font-size: 1rem;
+	line-height: 1.8;
+}
+.layer i{
+	color: var(--main-color);
+	margin-top: 20px;
+	font-size: 20px;
+	background: var(--text-color);
+	width: 60px;
+	height: 60px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+}
+.row:hover img{
+	transform: scale(1.1);
+}
+.row:hover .layer{
+	height: 100%;
+}
+
+.contact{
+	background: var(--second-bg-color);
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	gap: 2.5rem;
+}
+.contact-text h4{
+	color: var(--text-color);
+	margin: 18px 0;
+	font-size: 20px;
+	font-weight: 600;
+}
+.contact-text h2{
+	font-size: var(--h2-font);
+	line-height: 1;
+}
+.contact-text p{
+	color: var(--second-color);
+	font-size: var(--p-font);
+	line-height: 1.8;
+	margin-bottom: 30px;
+}
+.list{
+	margin-bottom: 2.8rem;
+}
+.list li{
+	margin-bottom: 12px;
+}
+.list li a{
+	display: block;
+	color: var(--second-color);
+	font-size: 14px;
+	transition: all .45s ease;
+}
+.list li a:hover{
+	color: var(--text-color);
+	transform: translateX(5px);
+}
+.contact-icons i{
+	height: 45px;
+	width: 45px;
+	background: var(--main-color);
+	color: var(--text-color);
+	font-size: 22px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 8px;
+	margin-right: 15px;
+	transition: all .45s ease;
+}
+.contact-icons i:hover{
+	background: var(--text-color);
+	color: var(--main-color);
+}
+
+.contact-form form{
+	position: relative;
+}
+.contact-form form input,
+form textarea{
+	width: 100%;
+	padding: 14px;
+	background: var(--bg-color);
+	color: var(--text-color);
+	border: none;
+	outline: none;
+	font-size: 15px;
+	border-radius: 8px;
+	margin-bottom: 10px;
+}
+.contact-form textarea{
+	resize: none;
+	height: 240px;
+}
+.contact-form .submit{
+	display: inline-block;
+	font-size: 16px;
+	background: var(--main-color);
+	color: var(--text-color);
+	width: 160px;
+	transition: all .45s ease;
+}
+.contact-form .submit:hover{
+	transform: scale(1.1);
+	cursor: pointer;
+}
+
+.end{
+	padding: 20px 15%;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 2rem;
+	background: var(--bg-color);
+}
+.last-text p{
+	color: var(--second-color);
+	font-size: 14px;
+}
+.top i{
+	padding: 10px;
+	border-radius: 8px;
+	font-size: 15px;
+	color: var(--text-color);
+	background: var(--main-color);
+}
+
+
+@media (max-width: 1480px){
+	header{
+		padding: 12px 2.5%;
+		transition: .1s;
+	}
+	header.sticky{
+		padding: 10px 2.5%;
+		transition: .1s;;
+	}
+	section{
+		padding: 110px 3% 60px;
+	}
+	.end{
+		padding: 15px 3%;
+	}
+}
+
+@media (max-width: 1100px){
+	:root{
+		--big-font: 4rem;
+	  --h2-font: 2.5rem;
+	  --p-font: 1rem;
+	  transition: .1s;
+	}
+	.home-text h3{
+		font-size: 2.5rem;
+	}
+	.home{
+		height: 87vh;
+	}
+}
+
+@media (max-width: 920px){
+	.about{
+		grid-template-columns: 1fr;
+	}
+	.about-img{
+		text-align: center;
+		order: 2;
+	}
+	.about-img img{
+		width: 100%;
+		height: auto;
+		max-width: 100%;
+	}
+	.contact{
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 840px){
+	#menu-icon{
+		display: block;
+	}
+	.navlist{
+		position: absolute;
+		top: -1000px;
+		right: 0;
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		background: var(--bg-color);
+		text-align: left;
+		transition: all .45s ease;
+	}
+	.navlist a{
+		display: block;
+		margin: 17px;
+		font-size: 20px;
+		transition: all .45s ease;
+		color: var(--text-color);
+	}
+	.navlist a:hover{
+		color: var(--main-color);
+	}
+	.navlist a.active{
+		color: var(--text-color);
+	}
+	.navlist.open{
+		top: 100%;
+	}
+}
+ </style>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Himanshu Goyal</title>
+	<!---custom css link---->
+	<!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+
+	 <link rel="stylesheet"
+  href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+	<!----header design--->
+	<header>
+		<a href="#" class="logo">Himanshu <span>Goyal</span></a>
+
+		<ul class="navlist">
+			<li><a href="#home" class="active">Home</a></li>
+			<li><a href="#about">About Me</a></li>
+			<li><a href="#experience">Experience</a></li>
+			<li><a href="#portfolio">Projects</a></li>
+			<li><a href="#contact">Contact Me</a></li>
+		</ul>
+
+		<div class="bx bx-menu" id="menu-icon">
+			
+		</div>
+	</header>
+
+	<!----home section design--->
+	<section class="home" id="home">
+		<div class="home-text">
+			<div class="slide">
+				<span class="one">Hello</span>
+				<span class="two">I'm</span>
+			</div>
+			<h1>Himanshu Goyal</h1>
+			<h3> Cyber Security<span> Enthusiast</span></h3>
+			<p>A Hustler who is focused on achieving his goals </p>
+			<div class="button">
+				<a href="#" class="btn">Say Hello</a>
+				<a href="#portfolio" class="btn2"><span><i class='bx bx-play'></i></span>Watch My Work</a>
+			</div>
+		</div>
+		<div class="home-img">
+			<img src="giphy.gif" >
+			<!-- <img src="back.jpeg" > -->
+		</div>
+	</section>
+
+	<!----about section design--->
+	<section class="about" id="about">
+		<div class="about-img">
+			<img src="about2.jpeg" style="width: 400px; height: 500px; object-fit: cover;" >
+		</div>
+
+		<div class="about-text">
+			<h2>About <span>Me</span></h2>
+			<h4>An Engineer by Training!</h4>
+			<p>Hello Everyone! 👋 
+			<!-- <br> -->
+			This is Himanshu Goyal from Sangrur, Punjab. 
+			<!-- <br> -->
+				
+			I'm a Final year Btech Cyber Security Student at VITB. 
+			<!-- <br> -->
+				
+		I'm a Cyber Security Enthusiast, Counsellor , Crypto Trader, Investor, Official Member at a Cyber Security Awareness Startup ‘Keycybr’ & an Executive Member at AntiCorruption Foundation of India 🇮🇳</p>
+	</p><!-- <a href="https://drive.google.com/file/d/1WGN4Meb1TMeABN-P7Qh5FoMQIKooiyIm/view?usp=sharing" target="_blank" class="btn">More About</a> -->
+		</div>
+	</section>
+
+	<!----service section design--->
+	<section class="services" id="experience">
+		<div class="main-text">
+			<!-- <p>What I am Expert In</p> -->
+			<h2><span>My</span> Experience</h2>
+		</div>
+
+		<div class="services-content">
+			<div class="box">
+				<div class="s-icons">
+					<i class='bx bx-mobile-alt' ></i>
+				</div>
+				<h3>MP Police</h3>
+				<p>The web portal provides the platform where the users can register complaints online or they
+					can raise an SOS in case of emergency. We worked to set up a central system where all the
+					complaints will be collected and the web portal will also be linked to an application that is
+					based on geo-fencing. The geo-fencing application will be based upon the concept in which
+					the user will set up a route and the notifications on the user’s phone .
+					Reported to Mr. Maithili Sharan Gupta, DGP MP Police</p>
+				<a href="#" class="read">Read More</a>
+			</div>
+
+			 <!-- <div class="box">
+				<div class="s-icons">
+					<i class='bx bx-code-alt' ></i>
+				</div>
+				<h3>RFID Car Parking System</h3>
+				<p>RFID based Car Parking System is a simple project that offers an efficient car parking management system with the help of RFID Technology.Car parking management in organisations and malls often consists of many tasks like issuing tokens, noting the check-in and check-out time, calculating fare and finally collecting the amount.
+				</p>
+				<a href="#" class="read">Read More</a>
+			</div> -->
+
+			<!--<div class="box">
+				<div class="s-icons">
+					<i class='bx bx-edit-alt' ></i>
+				</div>
+				<h3>White Hat Jr.</h3>
+				<p>Got selected in the User Engagement Department of WhiteHat Jr after a tough battle of 4 interview rounds
+					Received training and worked as a team member under a team lead</p>
+				<a href="#" class="read">Read More</a>
+			</div> -->
+
+		</div>
+	</section>
+
+	<!----portfolio section design--->
+	<section class="portfolio" id="portfolio">
+		<div class="main-text">
+			<h2><span>Latest</span> Project</h2>
+		</div>
+
+		<div class="portfolio-content">
+			<div class="row">
+				<img src="portfolio3.jpg">
+				<div class="layer">
+					<h5>Geofencing Application</h5>
+					<p>The main goal of this system is to create a new system (based on the waterfall model) to replace manual and older systems that completely depend on command line and request response systems and are ultimately ineffective in the current technological environment.
+					</p>
+					<!-- <a href="#"><i class='bx bx-link-external' ></i></a> -->
+				</div>
+			</div>
+
+			<div class="row">
+				<img src="portfolio4.jpg">
+				<div class="layer">
+					<h5>Tor Pi</h5>
+					<p>The Onion Router is software that enables you to use the internet anonymously. By setting
+						up TOR on a Raspberry Pi we create a network router that scrambles all of our internet
+						connections with anonymity.</p>
+					<!-- <a href="#"><i class='bx bx-link-external' ></i></a> -->
+				</div>
+			</div>
+
+			<div class="row">
+				<img src="portfolio2.jpg">
+				<div class="layer">
+					<h5>DROID SCAN</h5>
+					<p>a tool that can is a tool that scan ports on a remote android devices we will be able to detect a potential security breach by identifying the hosts connected to your network and the services running on them, such as the file transfer protocol (FTP) and hypertext transfer protocol (HTTP).</p>
+					<!-- <a href="#"><i class='bx bx-link-external' ></i></a> -->
+				</div>
+			</div>
+
+			<div class="row">
+				<img src="portfolio2.jpg">
+				<div class="layer">
+					<h5>RFID Car Parking System</h5>
+					<p>Description: RFID based Car Parking System is a simple project that offers an efficient car parking management system with the help of RFID Technology.Car parking management in organisations and malls often consists of many tasks like issuing tokens, noting the check-in and check-out time, calculating fare and finally collecting the amount.</p>
+					<!-- <a href="#"><i class='bx bx-link-external' ></i></a> -->
+				</div>
+			</div>
+			<!-- <div class="row">
+				<img src="img/portfolio5.jpg">
+				<div class="layer">
+					<h5>PROJECT @Standford university</h5>
+					<p>completion of the  project in code in place offered by Stanford University. Over a stiff competition of 50000+ students across the globe only a few got selected for it. I had recently completed the final project for the same. </p>
+					<a href="#"><i class='bx bx-link-external' ></i></a>
+				</div>
+			</div> -->
+			<!-- <div class="row">
+				<img src="img/portfolio6.jpg">
+				<div class="layer">
+					<h5>SteganoTool</h5>
+					<p>Description: Hiding the data in a secret way in the pixels of an image.Technology: Python, Android studio</p>
+				</div>
+			</div> -->
+		</div>
+		<!-- <div class="main-text" style="padding-top: 50px;">
+			<h2><span>Research</span> Profile</h2>
+		</div>
+		<p>RTASCE2021: Air Quality Prediction and analysis using machine learning.</p> -->
+	</section>
+
+	<!----contact section design--->
+	<section class="contact" id="contact">
+		<div class="about-img">
+			<img src="back.jpeg" style="width: 400px; height: 500px; object-fit: cover;" >
+		</div>
+		<div class="contact-text">
+			<h2>Contact <span>Me!</span></h2>
+			<!-- <h4>If You Have Any Project In Your Mind.</h4>
+			<p>I am skilled in programming languages such as C++, Java, Python etc.</p> -->
+			<div class="list">
+				<li><a href="tel:+91 7347667005">+91 7347667005</a></li>
+				<li><a href="mailto:himanshu.goyal2019@vitbhopal.ac.in" >himanshu.goyal2019@vitbhopal.ac.in</a></li>
+				<!-- <li><a href="#">Like Share & Subscribe</a></li> -->
+			</div>
+
+			<div class="contact-icons">
+				<a href="https://www.linkedin.com/in/himanshu-goyal-944946188" target="__blank"><i class='bx bxl-linkedin' ></i></a>
+				<a href=" https://twitter.com/Himansh42567328?t=Ax0MfnsbOQ3nagtLd8NvqQ&s=08"><i class='bx bxl-twitter' ></i></a>
+				<a href=" https://www.instagram.com/_anshuuuuu__/"><i class='bx bxl-instagram-alt' ></i></a>
+			</div>
+		</div>
+
+		<div class="contact-form">
+			<form action="">
+				<input type="name" placeholder="Your Name" required>
+				<input type="email" placeholder="Your Email Address" required>
+				<input type="" placeholder="Your Mobile Number" required>
+				<textarea name="" id="" cols="35" rows="10" placeholder="How Can I Help You" required></textarea>
+				<input type="submit" value="Send Message" href="mailto:himanshu.goyal2019@vitbhopal.ac.in"  class="submit" required>
+			</form>
+		</div>
+	</section>
+
+	<!----end section design--->
+	<section class="end">
+		<div class="last-text">
+			<p>Copyright © 2023 by Himanshu Goyal All Rights Reserved.</p>
+		</div>
+
+		<div class="top">
+			<a href="#home"><i class='bx bx-up-arrow-alt' ></i></a>
+		</div>
+	</section>
+
+	<!---custom js link--->
+	<script type="text/javascript" src="script.js"></script>
+
+</body>
+
+	<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBFY_PvBWU7uhCnlCKIXR_MccXdxJKx7r0",
+    authDomain: "himanshu-portfilio.firebaseapp.com",
+    projectId: "himanshu-portfilio",
+    storageBucket: "himanshu-portfilio.appspot.com",
+    messagingSenderId: "951665475765",
+    appId: "1:951665475765:web:6e66433235a42eec53befc",
+    measurementId: "G-KV990CBTE5"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+	
+</html>
